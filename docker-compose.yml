@@ -1,13 +1,13 @@
-# docker-compose.yml
 version: '3.8'
 
 services:
-  app:
+  web:
     build: .
     ports:
       - "8080:80"
     volumes:
-      # Bind-mount the host folder → container folder
-      - /data/coolify-uploads:/var/www/html/uploads
-    environment:
-      - UPLOAD_PATH=/var/www/html/uploads
+      - uploads:/var/www/html/uploads
+    restart: always
+
+volumes:
+  uploads:
