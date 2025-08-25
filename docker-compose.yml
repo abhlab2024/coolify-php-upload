@@ -1,12 +1,12 @@
+
 version: '3.8'
 
 services:
   app:
-    image: php:8.2-apache
+    build: .
     ports:
       - '8080:80'
     volumes:
-      - ./src:/var/www/html
       - ./uploads:/var/www/html/uploads
     environment:
       - UPLOAD_PATH=/var/www/html/uploads
